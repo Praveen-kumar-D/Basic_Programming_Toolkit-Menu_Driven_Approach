@@ -794,3 +794,63 @@ void Sub_String(char* a,char* b)
          printf("Sub String not present!");
     }
 }
+
+int* Return_pointer()
+{
+    int a=10;
+    int*p = &a;
+    return p;
+}
+
+struct student{
+    char name[20];
+    int roll_no;
+    int phy;
+    int chem;
+    int math;
+};
+void Student_List()
+{
+    int num,num1;
+    static int num3=0,num4=0;
+    struct student* p=(struct student*)malloc(1*sizeof(struct student));
+    start:
+    printf("Enter the your option:\n0 - Exit\n1 - Add student\n2 - Display List: ");
+    scanf("%d",&num);
+    while(num !=0)
+    {
+        if(num==1)
+        {
+            num1=0;
+            printf("Enter the number of students: ");
+            scanf("%d",&num1);
+            num3 +=num1;
+            p = (struct student*) realloc(p,(num3)*sizeof(struct student));
+            for(int i=num4;i<num3;i++)
+            {
+                printf("Enter details of student %d:\n Name - ",i+1);
+                scanf("%s",(p+i)->name);
+                printf("Roll Number - ");
+                scanf("%d",&(p+i)->roll_no);
+                printf("Marks:\nPhysics - ");
+                scanf("%d",&(p+i)->phy);
+                printf("Chemistry - ");
+                scanf("%d",&(p+i)->chem);
+                printf("Mathematics - ");
+                scanf("%d",&(p+i)->math);
+            }
+            num4=num3;
+            goto start;
+        }
+        else if(num==2)
+        {
+            printf("The student list is:\n");
+            for(int i=0;i<num3;i++)
+            {
+                printf("Name - %s\nRoll Number - %d\n",(p+i)->name,(p+i)->roll_no);
+            }
+            goto start;
+        }
+        
+    }
+}

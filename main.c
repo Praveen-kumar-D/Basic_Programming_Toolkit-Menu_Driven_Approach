@@ -21,7 +21,8 @@ int main()
     " Array\n22 - String concatenation\n23 - Non Repeating char in string\n24 - "
     "String Palindrome\n25 - Length of string\n26 - Sort String\n27 - Print 1st "
     "letter of each word\n28 - String Compare\n29 - Remove 0's\n30 - String conc"
-    "atinate\n31 - Sub String\n");
+    "atinate\n31 - Sub String\n32 - Return Pointer from Function\n33 - Student L"
+    "ist\n");
     printf("Enter your option: ");
     int num,num1;
     scanf("%d",&num1);
@@ -285,6 +286,9 @@ int main()
             case 32:
             int *p2 = Return_pointer();
             printf("The valuse stored in pointer returned from function is: %d",*p2);
+            break;
+            case 33:
+            Student_List();
             break;
             default:
             printf("enter a valid option!");
